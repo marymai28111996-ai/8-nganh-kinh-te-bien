@@ -239,13 +239,14 @@ body {
 .sector-card {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .sector-card .sector-stage {
     position: relative;
-    min-height: 396px;
+    min-height: 380px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: stretch;
@@ -324,13 +325,7 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
-  .sector-card .sector-stage {
-    min-height: 368px;
-  }
-}
-
-@media (max-width: 767px) {
+@media (max-width: 1023.98px) {
   .sector-card .sector-stage {
     display: flex;
     flex-direction: column;
@@ -338,6 +333,7 @@ body {
 
   .sector-card .sector-stage > .sector-shutter {
     position: relative;
+    width: 100%;
     order: 1;
   }
 
@@ -359,7 +355,8 @@ body {
     overflow: hidden;
   }
 
-  .sector-card.is-open .sector-stage > .sector-details-pane {
+  .sector-card.is-open .sector-stage > .sector-details-pane,
+  .sector-card[data-open="true"] .sector-stage > .sector-details-pane {
     grid-template-rows: 1fr;
     opacity: 1;
     visibility: visible;
@@ -372,6 +369,7 @@ body {
 
   .sector-card .sector-stage > .sector-art-pane {
     order: 3;
+    width: 100%;
   }
 }
 
