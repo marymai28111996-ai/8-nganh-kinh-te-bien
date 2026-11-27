@@ -1,0 +1,457 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Merriweather", Georgia, serif;
+  --font-sans: "Be Vietnam Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-ocean-50: #F0F9FF;
+  --color-ocean-100: #E0F2FE;
+  --color-ocean-200: #BAE6FD;
+  --color-ocean-300: #7DD3FC;
+  --color-ocean-400: #38BDF8;
+  --color-ocean-500: #0EA5E9;
+  --color-ocean-600: #0284C7;
+  --color-ocean-700: #0369A1;
+  --color-seafoam-50: #F0FDFA;
+  --color-seafoam-100: #CCFBF1;
+  --color-seafoam-400: #2DD4BF;
+  --color-seafoam-500: #14B8A6;
+  --color-seafoam-600: #0D9488;
+  --color-seafoam-700: #0F766E;
+  --color-sand-50: #FFFBEB;
+  --color-sand-100: #FEF3C7;
+  --color-sand-500: #F59E0B;
+  --color-sand-600: #D97706;
+  --color-sand-700: #B45309;
+}
+
+:root {
+  --ocean-primary: #0284C7;
+  --ocean-bright: #0EA5E9;
+  --ocean-sky: #38BDF8;
+  --ocean-deep: #0369A1;
+  --seafoam-deep: #0D9488;
+  --seafoam-bright: #14B8A6;
+  --sand-accent: #D97706;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F8FAFC;
+  background-image:
+    linear-gradient(to right, rgba(2, 132, 199, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(2, 132, 199, 0.055) 1px, transparent 1px),
+    linear-gradient(to right, rgba(2, 132, 199, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(2, 132, 199, 0.025) 1px, transparent 1px);
+  background-size: 144px 144px, 144px 144px, 36px 36px, 36px 36px;
+}
+
+.blueprint-sky {
+  background-color: #F0F9FF;
+  background-image:
+    linear-gradient(to right, rgba(14, 165, 233, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.blueprint-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px;
+}
+
+.blueprint-art-stage {
+  background-color: #F4FAFF;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.14), transparent 55%),
+    radial-gradient(circle at 18% 85%, rgba(20, 184, 166, 0.11), transparent 50%),
+    linear-gradient(to right, rgba(2, 132, 199, 0.065) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(2, 132, 199, 0.065) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.headline-balance {
+  text-wrap: balance;
+}
+
+/* Hiệu ứng kính mờ tinh tế cho hồ sơ pháp lý Phần 1 */
+.glass-dossier {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 32px -16px rgba(3, 105, 161, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Miếng băng dính giấy mờ kiểu ấn phẩm báo chí cắt dán có chủ đích */
+.paper-tape {
+  background: linear-gradient(125deg, rgba(254, 243, 199, 0.88) 0%, rgba(255, 251, 235, 0.72) 48%, rgba(224, 242, 254, 0.82) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(217, 119, 6, 0.18);
+  box-shadow: 0 2px 6px rgba(3, 105, 161, 0.12);
+  backdrop-filter: blur(2px);
+}
+
+/* Drop cap báo chí thanh lịch cho Sapo */
+.sapo-dropcap::first-letter {
+  float: left;
+  font-family: "Merriweather", Georgia, serif;
+  font-weight: 900;
+  font-size: 2.75rem;
+  line-height: 0.85;
+  padding-top: 0.16rem;
+  padding-right: 0.55rem;
+  color: #0369A1;
+}
+
+@media (min-width: 640px) {
+  .sapo-dropcap::first-letter {
+    font-size: 3.35rem;
+    padding-top: 0.18rem;
+    padding-right: 0.65rem;
+  }
+}
+
+/* Chuyển động GPU thuần túy cho tua-bin, la bàn, tàu và toàn cảnh Hero */
+@keyframes spinTurbine {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heroPanoramaScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes vesselBobPrimary {
+  0%, 100% { transform: translate3d(0, -2.5px, 0); }
+  50% { transform: translate3d(0, 2.5px, 0); }
+}
+
+@keyframes vesselBobSecondary {
+  0%, 100% { transform: translate3d(0, 2.2px, 0); }
+  50% { transform: translate3d(0, -2.2px, 0); }
+}
+
+.turbine-rotor,
+.turbine-rotor-slow,
+.hero-turbine-blade,
+#hero-banner #hero-compass-rotor {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.turbine-rotor {
+  animation: spinTurbine 12s linear infinite;
+}
+
+.turbine-rotor-slow {
+  animation: spinTurbine 16s linear infinite reverse;
+}
+
+#hero-banner .hero-turbine-cw {
+  animation: spinTurbine 20s linear infinite;
+}
+
+#hero-banner .hero-turbine-ccw {
+  animation: spinTurbine 24s linear infinite reverse;
+}
+
+#hero-banner .hero-turbine-fast {
+  animation: spinTurbine 15s linear infinite;
+}
+
+#hero-banner #hero-compass-rotor {
+  animation: spinTurbine 90s linear infinite;
+}
+
+#hero-banner .hero-vessel-bob {
+  animation: vesselBobPrimary 10s ease-in-out infinite;
+}
+
+#hero-banner .hero-vessel-bob-delay {
+  animation: vesselBobSecondary 12s ease-in-out infinite;
+}
+
+/* Khung rãnh chạy ngang liền mạch cho cảnh SVG hàng hải trong #hero-banner */
+#hero-banner {
+  container-type: inline-size;
+}
+
+#hero-banner #hero-panorama-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 200%;
+  gap: 0;
+  will-change: transform;
+  animation: heroPanoramaScroll 60s linear infinite;
+}
+
+.hero-panorama-tile {
+  display: block;
+  width: 50%;
+  min-width: 50%;
+  flex: 0 0 50%;
+  height: auto;
+}
+
+/* Tạm dừng animation phần dưới khi cuộn ra khỏi khung nhìn để tối ưu pin & GPU */
+#phan-2.is-offscreen .turbine-rotor,
+#phan-2.is-offscreen .turbine-rotor-slow {
+  animation-play-state: paused;
+}
+
+/* Gradient chữ cho tiêu đề #hero-banner */
+.hero-title-gradient-orange {
+  display: inline-block;
+  padding: 0.2em 0.12em 0.14em;
+  margin: -0.12em 0 -0.06em;
+  line-height: 1.32;
+  background-image: linear-gradient(180deg, #FFF7ED 0%, #FDBA74 28%, #FB923C 62%, #F97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 6px 14px rgba(3, 65, 110, 0.48));
+}
+
+.hero-title-gradient-white-blue {
+  display: inline-block;
+  padding: 0.28em 0.12em 0.16em;
+  margin: -0.18em 0 -0.08em;
+  line-height: 1.4;
+  background-image: linear-gradient(180deg, #FFFFFF 18%, #CCFBF1 52%, #5EEAD4 84%, #2DD4BF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 5px 12px rgba(3, 65, 110, 0.45));
+}
+
+/* Hệ thống công tắc trượt ngang (Interactive Slide Toggle Card) cho 8 nhóm ngành */
+.sector-card {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .sector-card .sector-stage {
+    position: relative;
+    min-height: 396px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .sector-card .sector-stage > .sector-shutter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 30;
+    transform: translate3d(0%, 0, 0);
+    backface-visibility: hidden;
+    box-shadow: 10px 0 28px -12px rgba(3, 105, 161, 0.28);
+    transition:
+      transform 0.56s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .sector-card.is-open .sector-stage > .sector-shutter,
+  .sector-card[data-open="true"] .sector-stage > .sector-shutter {
+    transform: translate3d(100%, 0, 0);
+    box-shadow: -12px 0 32px -12px rgba(3, 105, 161, 0.34);
+  }
+
+  .sector-card .sector-stage > .sector-details-pane {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(-12px, 0, 0);
+    transition:
+      opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0.52s;
+  }
+
+  .sector-card.is-open .sector-stage > .sector-details-pane,
+  .sector-card[data-open="true"] .sector-stage > .sector-details-pane {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate3d(0, 0, 0);
+    transition:
+      opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0s;
+  }
+
+  .sector-card .sector-stage > .sector-art-pane {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    position: relative;
+    z-index: 5;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1);
+    transition:
+      opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .sector-card.is-open .sector-stage > .sector-art-pane,
+  .sector-card[data-open="true"] .sector-stage > .sector-art-pane {
+    opacity: 0.12;
+    pointer-events: none;
+    transform: scale(0.97);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sector-card .sector-stage {
+    min-height: 368px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sector-card .sector-stage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sector-card .sector-stage > .sector-shutter {
+    position: relative;
+    order: 1;
+  }
+
+  .sector-card .sector-stage > .sector-details-pane {
+    order: 2;
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      grid-template-rows 0.46s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.32s ease,
+      visibility 0s linear 0.46s;
+  }
+
+  .sector-details-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .sector-card.is-open .sector-stage > .sector-details-pane {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      grid-template-rows 0.46s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.32s ease,
+      visibility 0s linear 0s;
+  }
+
+  .sector-card .sector-stage > .sector-art-pane {
+    order: 3;
+  }
+}
+
+/* Công tắc gạt vật lý trong nút Xem thêm / Thu gọn */
+.toggle-track {
+  width: 44px;
+  height: 24px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.toggle-knob {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  box-shadow: 0 1px 4px rgba(3, 105, 161, 0.35);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sector-card.is-open .toggle-track {
+  background: #14B8A6;
+  border-color: #CCFBF1;
+}
+
+.sector-card.is-open .toggle-knob {
+  transform: translate3d(20px, 0, 0);
+}
+
+/* Hiệu ứng cuộn nhẹ nhàng không chặn LCP */
+.reveal-pending {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+.reveal-up,
+.tape-reveal {
+  transition:
+    opacity 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-tape-pending {
+  opacity: 0;
+  transform: translate3d(0, -10px, 0);
+}
+
+/* Tối ưu hóa render các khối bên dưới màn hình đầu tiên */
+@supports (content-visibility: auto) {
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .turbine-rotor,
+  .turbine-rotor-slow {
+    animation: none !important;
+  }
+
+  .sector-shutter,
+  .sector-details-pane,
+  .sector-art-pane,
+  .toggle-knob,
+  .reveal-up,
+  .tape-reveal {
+    transition: none !important;
+  }
+
+  .reveal-pending,
+  .reveal-tape-pending {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

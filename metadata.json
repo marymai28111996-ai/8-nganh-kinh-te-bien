@@ -1,0 +1,6 @@
+{
+  "name": "TPHCM mở cơ chế ưu đãi cho 8 nhóm ngành kinh tế biển",
+  "description": "Cụ thể hóa Luật Phát triển đô thị số 18/2026/QH16, HĐND TPHCM đã ban hành Nghị quyết số 73/2026/NQ-HĐND quy định danh mục 8 nhóm ngành với 19 lĩnh vực kinh tế biển được hưởng chính sách ưu đãi, hỗ trợ đầu tư trên địa bàn Thành phố.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
